@@ -30,12 +30,15 @@ $('#js-shopping-list-form').find('button').on('click', event => {
 }); 
 
 // check and uncheck items on the list by clicking the "shopping-item-toggle" button
-$('.shopping-item-toggle').on('click', event =>{
-    // console.log(`this: ${$(event.currentTarget).parent().siblings('.shopping-item')}`);
-    $(event.currentTarget).parent().siblings('.shopping-item').toggleClass('shopping-item__checked');
+$('.shopping-list').on('click','.shopping-item-toggle', function(){
+  $(this).parent().siblings('.shopping-item').toggleClass('shopping-item__checked');
+  console.log('x');
 });
 
 // permanently remove items from the list when the button "shopping-item-delete" is pressed
-$('.shopping-item-delete').on('click', event =>{
-   $(event.currentTarget).parent().parent().remove();
+$('.shopping-list').on('click','.shopping-item-delete', function(){
+   $(this).parent().parent().remove();
+   console.log('y');
 });
+
+// try listening on parent and filter for child events 
